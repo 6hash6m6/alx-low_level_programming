@@ -12,13 +12,13 @@ int _sqrt_recursion(int n)
 }
 
 /**
- * _sqrt - recursing to find natural one
+ * nat_sqrt - recursing to find natural one
  * @n: n
  * @i: i
  * Return: _sqrt
  */
 
-int _sqrt(int n, int i)
+int nat_sqrt(int n, int i)
 {
 	if (i * i > n)
 		return (-1);
