@@ -8,14 +8,14 @@
 
 int _sqrt_recursion(int n)
 {
-	return (_sqrt(n, 1));
+	return (nat_sqrt(n, 1));
 }
 
 /**
  * nat_sqrt - recursing to find natural one
  * @n: n
  * @i: i
- * Return: _sqrt
+ * Return: nat_sqrt
  */
 
 int nat_sqrt(int n, int i)
@@ -24,5 +24,5 @@ int nat_sqrt(int n, int i)
 		return (-1);
 	if (i * i == n)
 		return (i);
-	return (_sqrt(n, i + 1));
+	return (nat_sqrt(n, i + 1));
 }
