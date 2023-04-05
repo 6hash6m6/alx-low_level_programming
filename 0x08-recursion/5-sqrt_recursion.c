@@ -1,5 +1,7 @@
 #include "main.h"
 
+int nat_sqrt(int n, int i);
+
 /**
  * _sqrt_recursion - square root
  * @n: n
