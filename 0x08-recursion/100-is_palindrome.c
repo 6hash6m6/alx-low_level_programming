@@ -17,7 +17,7 @@ int is_palindrome(char *s)
 }
 
 /**
- * _str_recursion - strlen
+ * _str_recursion - getting string length
  * @s: calc length
  * Return: length
  */
@@ -39,7 +39,7 @@ int _strlen_recursion(char *s)
 
 int check_palindrome(char *s, int i, int len)
 {
-	if (*(s + i) != *(s + len -1))
+	if (*(s + i) != *(s + len - 1))
 		return (0);
 	if (i >= len)
 		return (1);
