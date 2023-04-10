@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	int i, res, s = 0;
 	char c[] = "Error", *find_letter;
 
-	if (argc > )
+	if (argc > 1)
 	{
 		for (i = 1; i < argc; i++)
 		{
