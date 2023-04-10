@@ -41,7 +41,7 @@ int main(int argc, char *argv[])
 	}
 	if (i == 1)
 		cents++;
-	printf("%d\n", coins);
+	printf("%d\n", cents);
 
 	return (0);
 }
