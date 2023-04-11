@@ -5,7 +5,7 @@
 /**
  * _strdup - ep
  * @str: char
- * @Return: newStr;
+ * Return: newStr;
  */
 
 char *_strdup(char *str)
