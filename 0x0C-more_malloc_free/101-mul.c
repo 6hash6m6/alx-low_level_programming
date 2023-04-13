@@ -13,6 +13,7 @@ void add_nums(char *last_prod, char *next_prod, int next_length);
  * @str: char
  * Return: length;
  */
+
 int find_length(char *str)
 {
 	int length = 0;
@@ -86,8 +87,8 @@ int get_digit(char c)
  * @m: char
  * @digit: int
  * @zeroes: int
- * Return: void;
  */
+
 void get_prod(char *prod, char *m, int digit, int zeroes)
 {
 	int m_len, num, tens = 0;
@@ -97,7 +98,7 @@ void get_prod(char *prod, char *m, int digit, int zeroes)
 
 	while (*prod)
 	{
-		*prod = 'x';
+i		*prod = 'x';
 		prod++;
 	}
 
@@ -132,7 +133,6 @@ void get_prod(char *prod, char *m, int digit, int zeroes)
  * @last_prod: char
  * @next_prod: char
  * @next_length: int
- * Return: void;
  */
 
 void add_nums(char *last_prod, char *next_prod, int next_length)
@@ -173,10 +173,11 @@ void add_nums(char *last_prod, char *next_prod, int next_length)
 
 /**
  * main - main func
- * @argv: int
- * @argc: char
+ * @argc: int
+ * @argv: pcharArr
  * Return: 0;
  */
+
 int main(int argc, char *argv[])
 {
 	char *last_prod, *next_prod;
