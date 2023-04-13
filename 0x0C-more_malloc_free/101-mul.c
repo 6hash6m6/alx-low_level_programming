@@ -67,10 +67,10 @@ void _puts(char *str)
 {
 	while (*str != 0)
 	{
-		_putchar(*str);
+		putchar(*str);
 		str++;
 	}
-	_putchar('\n');
+	putchar('\n');
 }
 
 /**
@@ -129,14 +129,14 @@ void multiply(char *n1, char *n2)
 	for (idx = 0; idx < total; idx++)
 	{
 		if (ptr[idx] == 0 && res == 1)
-			_putchar(ptr[idx] + '0');
+			putchar(ptr[idx] + '0');
 		else if (ptr[idx] > 0)
 		{
-			_putchar(ptr[idx] + '0');
+			putchar(ptr[idx] + '0');
 			res = 1;
 		}
 	}
-	_putchar('\n');
+	putchar('\n');
 	free(ptr);
 }
 
