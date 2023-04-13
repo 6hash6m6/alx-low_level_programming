@@ -1,223 +1,167 @@
 #include "main.h"
-#include <stdlib.h>
 #include <stdio.h>
-
-int find_length(char *str);
-char *dec_arr(int size);
-char *iterator(char *str);
-void get_prod(char *prod, char *m, int digit, int zeroes);
-void add_nums(char *last_prod, char *next_prod, int next_length);
+#include <stdlib.h>
 
 /**
- * find_length - ep
- * @str: char
- * Return: length;
+ * _strlen - ep
+ * @s: char
+ * Return: 0;
  */
 
-int find_length(char *str)
+int _strlen(char *s)
 {
-	int length = 0;
+	char *p = s;
 
-	while (*str++)
-		length++;
-
-	return (length);
+	while (*s)
+		s++;
+	return (s - p);
 }
 
 /**
- * dec_arr - ep
- * @size: int
- * Return: arr;
+ * _memset - ep
+ * @s: char
+ * @b: char
+ * @n: int
+ * Return: p;
  */
 
-char *dec_arr(int size)
+char *_memset(char *s, char b, unsigned int n)
 {
-	char *arr;
-	int index;
+	char *p = s;
 
-	arr = malloc(sizeof(char) * size);
+	for (; n; n--)
+		*p++ = b;
 
-	if (arr == NULL)
-		exit(98);
-
-	for (index = 0; index < (size - 1); index++)
-		arr[index] = 'x';
-
-	arr[index] = '\0';
-
-	return (arr);
+	return (s);
 }
 
 /**
- * iterator - ep
+ * _calloc - ep
+ * @nmemb: uint
+ * @size: uint
+ * Return: ptr
+ */
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	void *ptr;
+
+	if (size == 0 || nmemb == 0)
+		return (NULL);
+
+	ptr = malloc(nmemb * size);
+	if (ptr == NULL)
+		return (NULL);
+
+	_memset(ptr, 0, size * nmemb);
+
+	return (ptr);
+}
+
+/**
+ *_puts - ep
  * @str: char
- * Return: str;
+ * Return: void;
  */
 
-char *iterator(char *str)
+void _puts(char *str)
 {
-	while (*str && *str == '0')
+	while (*str != 0)
+	{
+		_putchar(*str);
 		str++;
-
-	return (str);
+	}
+	_putchar('\n');
 }
 
 /**
- * get_digit - ep
- * @c: char
- * Return: digit;
+ * strNumbers - ep
+ * @str: char
+ * Return: ? 1 : 0
  */
 
-int get_digit(char c)
+int strNumbers(char *str)
 {
-	int digit = c - '0';
-
-	if (digit < 0 || digit > 9)
+	while (*str)
 	{
-		printf("Error\n");
-		exit(98);
+		if (*str < '0' || *str > '9')
+			return (0);
+		str++;
 	}
-
-	return (digit);
+	return (1);
 }
 
 /**
- * get_prod - ep
- * @prod: char
- * @m: char
- * @digit: int
- * @zeroes: int
+ * multiply - ep
+ * @n1: char
+ * @n2: char
+ * Return: ptr;
  */
 
-void get_prod(char *prod, char *m, int digit, int zeroes)
+void multiply(char *n1, char *n2)
 {
-	int m_len, num, tens = 0;
+	int idx, n1n, n2n, res, tmp, total;
+	int n1l = _strlen(n1);
+	int n2l = _strlen(n2);
 
-	m_len = find_length(m) - 1;
-	m += m_len;
+	int *ptr;
 
-	while (*prod)
+	tmp = n2l;
+	total = n1l + n2l;
+	ptr = _calloc(total, sizeof(int));
+	for (n1l--; n1l >= 0; n1l--)
 	{
-		*prod = 'x';
-		prod++;
-	}
-
-	prod--;
-
-	while (zeroes--)
-	{
-		*prod = '0';
-		prod--;
-	}
-
-	for (; m_len >= 0; m_len--, m--, prod--)
-	{
-		if (*m < '0' || *m > '9')
+		n1n = n1[n1l] - '0';
+		res = 0;
+		n2l = tmp;
+		for (n2l--; n2l >= 0; n2l--)
 		{
-			printf("Error\n");
-			exit(98);
+			n2n = n2[n2l] - '0';
+			res += ptr[n1l + n2l + 1] + (n1n * n2n);
+			ptr[n1l + n2l + 1] = res % 10;
+			res /= 10;
 		}
-
-		num = (*m - '0') * digit;
-		num += tens;
-		*prod = (num % 10) + '0';
-		tens = num / 10;
+		if (res)
+		{
+			ptr[n1l + n2l + 1] = res % 10;
+		}
 	}
-
-	if (tens)
-		*prod = (tens % 10) + '0';
-}
-
-/**
- * add_nums - ep
- * @last_prod: char
- * @next_prod: char
- * @next_length: int
- */
-
-void add_nums(char *last_prod, char *next_prod, int next_length)
-{
-	int num, tens = 0;
-
-	while (*(last_prod + 1))
-		last_prod++;
-
-	while (*(next_prod + 1))
-		next_prod++;
-
-	for (; *last_prod != 'x'; last_prod--)
+	res = 0;
+	for (idx = 0; idx < total; idx++)
 	{
-		num = (*last_prod - '0') + (*next_prod - '0');
-		num += tens;
-		*last_prod = (num % 10) + '0';
-		tens = num / 10;
-
-		next_prod--;
-		next_length--;
+		if (ptr[idx] == 0 && res == 1)
+			_putchar(ptr[idx] + '0');
+		else if (ptr[idx] > 0)
+		{
+			_putchar(ptr[idx] + '0');
+			res = 1;
+		}
 	}
-
-	for (; next_length >= 0 && *next_prod != 'x'; next_length--)
-	{
-		num = (*next_prod - '0');
-		num += tens;
-		*last_prod = (num % 10) + '0';
-		tens = num / 10;
-
-		last_prod--;
-		next_prod--;
-	}
-
-	if (tens)
-		*last_prod = (tens % 10) + '0';
+	_putchar('\n');
+	free(ptr);
 }
 
 /**
  * main - main func
- * @argv: int
- * @argc: char
+ * @argc: int
+ * @argv: char
  * Return: 0;
  */
 
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	char *last_prod, *next_prod;
-	int size, index, digit, zeroes = 0;
+	char *nb1 = argv[1];
+	char *nb2 = argv[2];
 
-	if (argc != 3)
+	if (argc != 3 || !strNumbers(nb1) || !strNumbers(nb2))
 	{
-		printf("Error\n");
+		_puts("Error");
 		exit(98);
 	}
-
-	if (*(argv[1]) == '0')
-		argv[1] = iterator(argv[1]);
-	if (*(argv[2]) == '0')
-		argv[2] = iterator(argv[2]);
-	if (*(argv[1]) == '\0' || *(argv[2]) == '\0')
+	if (*nb1 == '0' || *nb2 == '0')
+		_puts("0");
+	else
 	{
-		printf("0\n");
-		return (0);
+		multiply(nb1, nb2);
 	}
-
-	size = find_length(argv[1]) + find_length(argv[2]);
-	last_prod = dec_arr(size + 1);
-	next_prod = dec_arr(size + 1);
-
-	for (index = find_length(argv[2]) - 1; index >= 0; index--)
-	{
-		digit = get_digit(*(argv[2] + index));
-		get_prod(next_prod, argv[1], digit, zeroes++);
-		add_nums(last_prod, next_prod, size - 1);
-	}
-	for (index = 0; last_prod[index]; index++)
-	{
-		if (last_prod[index] != 'x')
-			putchar(last_prod[index]);
-	}
-	putchar('\n');
-
-	free(next_prod);
-	free(last_prod);
-
 	return (0);
 }
