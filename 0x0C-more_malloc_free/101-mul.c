@@ -13,7 +13,6 @@ void add_nums(char *last_prod, char *next_prod, int next_length);
  * @str: char
  * Return: length;
  */
-
 int find_length(char *str)
 {
 	int length = 0;
@@ -98,7 +97,7 @@ void get_prod(char *prod, char *m, int digit, int zeroes)
 
 	while (*prod)
 	{
-i		*prod = 'x';
+		*prod = 'x';
 		prod++;
 	}
 
@@ -173,8 +172,8 @@ void add_nums(char *last_prod, char *next_prod, int next_length)
 
 /**
  * main - main func
- * @argc: int
- * @argv: pcharArr
+ * @argv: int
+ * @argc: char
  * Return: 0;
  */
 
