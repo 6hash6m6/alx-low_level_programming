@@ -13,6 +13,7 @@ void add_nums(char *last_prod, char *next_prod, int next_length);
  * @str: char
  * Return: length;
  */
+
 int find_length(char *str)
 {
 	int length = 0;
