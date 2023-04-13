@@ -6,7 +6,7 @@
  * array_range - ep
  * @min: int
  * @max: int
- * Return: a
+ * Return: arr
  */
 
 int *array_range(int min, int max)
@@ -26,5 +26,5 @@ int *array_range(int min, int max)
 	for (i = 0; i < size; i++)
 		arr[i] = min++;
 
-	return (array);
+	return (arr);
 }
