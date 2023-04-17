@@ -12,6 +12,7 @@ typedef struct dog dog_t;
  * @name: pchar
  * @age: float
  * @owner: pchar
+ * Description: declaring and defining struct dog
 */
 
 
