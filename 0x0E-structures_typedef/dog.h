@@ -2,12 +2,6 @@
 #define DOG_H
 
 /**
- * dog_t - defining typedef dog_t
-*/
-
-typedef struct dog dog_t;
-
-/**
  * struct dog - dog structer
  * @name: pchar
  * @age: float
@@ -15,13 +9,17 @@ typedef struct dog dog_t;
  * Description: declaring and defining struct dog
 */
 
-
-
 struct dog{
     char *name;
     float age;
     char *owner;
 }
+
+/**
+ * dog_t - defining typedef dog_t
+*/
+
+typedef struct dog dog_t;
 
 void init_dog(struct dog *d, char *name, float age, char *owner);
 void print_dog(struct dog *d);
