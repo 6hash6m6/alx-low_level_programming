@@ -1,7 +1,20 @@
 #ifndef DOG_H
 #define DOG_H
 
+/**
+ * dog_t - defining typedef dog_t
+*/
+
 typedef struct dog dog_t;
+
+/**
+ * struct dog - dog structer
+ * @name: pchar
+ * @age: float
+ * @owner: pchar
+*/
+
+
 
 struct dog{
     char *name;
