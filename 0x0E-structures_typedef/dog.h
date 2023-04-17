@@ -7,7 +7,7 @@
  * @age: float
  * @owner: pchar
  * Description: declaring and defining struct dog
-*/
+ */
 
 struct dog{
     char *name;
@@ -17,7 +17,7 @@ struct dog{
 
 /**
  * dog_t - defining typedef dog_t
-*/
+ */
 
 typedef struct dog dog_t;
 
