@@ -1,4 +1,13 @@
 #include <stdio.h>
+
+/**
+ * main - starting point
+ * @argc: arguments count of argv
+ * @argv: array of strings
+ * Return: 0;
+ */
+
+
 int main(int argc, char **argv)
 {
 
