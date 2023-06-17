@@ -11,7 +11,7 @@
 char *str_concat(char *s1, char *s2)
 {
 
-	int i, n, len1, len2 = 0;
+	int i, n, len1 = 0, len2 = 0;
 	char *strConc;
 
 	if (s1 == NULL)
@@ -36,6 +36,8 @@ char *str_concat(char *s1, char *s2)
 
 	for (n = 0; n < len2; n++)
 		strConc[i + n] = s2[n];
+
+	strConc[i + n] = '\0';
 
 	return (strConc);
 
