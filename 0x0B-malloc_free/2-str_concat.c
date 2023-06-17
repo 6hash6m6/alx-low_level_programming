@@ -15,9 +15,9 @@ char *str_concat(char *s1, char *s2)
 	char *strConc;
 
 	if (s1 == NULL)
-		return ("");
+		return (" ");
 	if (s2 == NULL)
-		return ("");
+		return (" ");
 
 	for (len1 = 0; s1[len1] != '\0'; len1++)
 		;
@@ -36,8 +36,6 @@ char *str_concat(char *s1, char *s2)
 
 	for (n = 0; n < len2; n++)
 		strConc[i + n] = s2[n];
-
-	strConc[i + n] = '\0';
 
 	return (strConc);
 
