@@ -3,10 +3,10 @@
 #include <string.h>
 
 /**
- * argtostr - concatenating all args of the program
+ * argstostr - concatenating all args of the program
  * @ac: args count
  * @av: args vector
- * @Return: concat;
+ * Return: concat;
  */
 
 char *argstostr(int ac, char **av)
@@ -40,5 +40,4 @@ char *argstostr(int ac, char **av)
 
 	concat[curr] = '\0';
 	return (concat);
-	
 }
