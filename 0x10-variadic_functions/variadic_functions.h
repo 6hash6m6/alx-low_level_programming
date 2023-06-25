@@ -1,5 +1,5 @@
 #ifndef MAIN_H
-#define MAIN
+#define MAIN_H
 
 int sum_them_all(const unsigned int n, ...);
 
