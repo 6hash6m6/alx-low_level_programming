@@ -18,7 +18,7 @@ void print_all(const char * const format, ...)
 	while (format && format[j])
 		j++;
 
-	while (format[i])
+	while (format && format[i])
 	{
 		if (i == j - 1)
 			separator = "";
