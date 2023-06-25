@@ -20,7 +20,7 @@ void print_all(const char * const format, ...)
 
 	while (format && format[i])
 	{
-		if (i == j - 1)
+		if (i == (j - 1))
 			separator = "";
 
 		switch (format[i])
@@ -30,7 +30,7 @@ void print_all(const char * const format, ...)
 				break;
 			case 's':
 				str = va_arg(args, char*);
-				str ? printf("%s%s", str, separator) : str = "(nil)";
+				str ? printf("%s%s", str, separator) : printf("(nil)");
 				break;
 			case 'c':
 				printf("%c%s", va_arg(args, int), separator);
